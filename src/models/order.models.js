@@ -1,41 +1,46 @@
-import moongoose from "moongoose"
-const orderitemschema = new moongoose.Schema({
+import mongoose from "mongoose"
+
+const orderItemSchema = new mongoose.Schema({
     productId: {
-        type: moongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product",
+        required: true,
     },
     quantity: {
         type: Number,
         required: true,
-    }
-
+        min: 1,
+    },
 })
-const orderschema = new moongoose.Schema({
-    Orderprice: {
-        type: Number,
-        reqired: true,
-    },
-    customer: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-    },
-    Orderitems: {
-        type: [orderitemschema]
-    },
-    address: {
-        type: String,
-        required: true,
-        unique: true,
-    },
-    status: {
-        type: String,
-        enum: ["pending", "cancelled", "delevered"],
-        default: "pending",
-    }
 
-
-},
+const orderSchema = new mongoose.Schema(
     {
-        timestamps: true
+        orderPrice: {
+            type: Number,
+            required: true,
+        },
+        customer: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true,
+        },
+        orderItems: {
+            type: [orderItemSchema],
+            required: true,
+        },
+        address: {
+            type: String,
+            required: true,
+        },
+        status: {
+            type: String,
+            enum: ["pending", "cancelled", "delivered"],
+            default: "pending",
+        },
+    },
+    {
+        timestamps: true,
     }
-)
-export default moongoose.model("Order", orderschema)    
+);
+
+export default mongoose.model("Order", orderSchema)
