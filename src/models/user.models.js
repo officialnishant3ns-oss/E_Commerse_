@@ -27,7 +27,22 @@ const userSchema = new mongoose.Schema(
             type: String,
             enum: ["Customer", "Admin"],
             default: "Customer",
-        }   
+        },
+        cartdata: {
+            items: {
+                type: Array,
+                default: []
+            },
+            totalQuantity: {
+                type: Number,
+                default: 0
+            },
+            totalPrice: {
+                type: Number,
+                default: 0
+            }
+        }
+
     },
     { timestamps: true }
 )
