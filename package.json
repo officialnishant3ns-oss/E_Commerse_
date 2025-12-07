@@ -1,7 +1,7 @@
 {
-  "name": "e_commerse",
+  "name": "hotel_management",
   "version": "1.0.0",
-  "description": "E_commerse",
+  "description": "Hotel Management System",
   "main": "index.js",
   "type": "module",
   "scripts": {

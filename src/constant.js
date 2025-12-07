@@ -1,1 +1,1 @@
-export const DB_NAME="E_Commerce_project"
+export const DB_NAME="Hotel_Management"

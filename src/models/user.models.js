@@ -22,26 +22,15 @@ const userSchema = new mongoose.Schema(
             required: true
         },
 
-        role: {
-            type: String,
-            enum: ["Customer", "Admin"],
-            default: "Customer",
-        },
-        cartdata: {
-            items: {
-                type: Array,
-                default: []
-            },
-            totalQuantity: {
-                type: Number,
-                default: 0
-            },
-            totalPrice: {
-                type: Number,
-                default: 0
-            }
-        }
-
+       role:{
+        type: String,
+        enum: ['admin', 'customer', 'staff'],
+        default: 'customer' 
+       },
+       refreshToken: {
+        type: String,
+        default: null
+       }
     },
     { timestamps: true }
 )

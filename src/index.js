@@ -1,5 +1,4 @@
-console.log("hello E-commerse")
-import dotenv from 'dotenv'
+    import dotenv from 'dotenv'
 dotenv.config(
     {
         path: './.env'
@@ -22,7 +21,7 @@ connectdb()
     });
     
     app.get('/api/v1',(_,res)=>{
-        res.send('Welcome to the E-commerce App')
+        res.send('Welcome to the Hotel Management App')
     })
 
 
