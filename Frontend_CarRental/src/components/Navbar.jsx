@@ -5,7 +5,7 @@ import { NavLink, Link } from 'react-router-dom'
 const Navbar = ({setShowLogin}) => {
       const [sidebarOpen, setSidebarOpen] = useState(false)
   return (
-    <div className=' bg-gray-300 flex items-center justify-evenly h-20'>
+    <div className=' bg-gray-200 flex items-center justify-evenly h-20'>
 
       <div>
         <img src={assets.logo} className='h-8' alt="" />

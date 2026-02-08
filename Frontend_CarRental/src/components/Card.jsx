@@ -1,19 +1,25 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { useNavigate } from 'react-router-dom'
 
 const Card = ({ car }) => {
+  const navigate = useNavigate()
+  console.log(car)
+
   return (
-    <div className="group relative rounded-xl overflow-hidden shadow-md bg-white">
+    <div
+    onClick={()=>{navigate(`/car-details/${car._id}`); scrollTo(0,0)}}
+     className="group relative rounded-xl overflow-hidden shadow-md bg-white">
 
       <div className="relative">
         <img
-          src={car.images}
+          src={car.image}
           alt="car"
-          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-58 object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        {car.isAvailable && (
-          <p className="absolute top-4 left-4 bg-primary/90 text-white text-xs px-3 py-1 rounded-full">
+        {car.isAvaliable  && (
+          <p className="absolute top-4 left-4 bg-sky-500 text-white text-xs px-4 py-2 rounded-full">
             Available Now
           </p>
         )}
@@ -27,7 +33,7 @@ const Card = ({ car }) => {
 
     
       <div className="p-4">
-        <h3 className="text-lg font-medium">{car.brand}</h3>
+        <h3 className="text-lg font-medium">{car.brand}  {car.model}</h3>
         <p className="text-sm text-gray-500">
           {car.category} • {car.year}
         </p>
@@ -37,12 +43,12 @@ const Card = ({ car }) => {
 
           <div className="flex items-center gap-2">
             <img src={assets.users_icon} alt="" />
-            <span>{car.seats} Seats</span>
+            <span>{car.seating_capacity} seat</span>
           </div>
 
           <div className="flex items-center gap-2">
             <img src={assets.fuel_icon} alt="" />
-            <span>{car.fuelType}</span>
+            <span>{car.fuel_type}</span>
           </div>
 
           <div className="flex items-center gap-2">
